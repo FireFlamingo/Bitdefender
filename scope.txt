@@ -1,0 +1,87 @@
+Bitdefender Bug Bounty Program
+Here you can check the Bitdefender hall of fame.
+
+The Bug Bounty Reward program encourages security researchers to identify and submit vulnerability reports regarding virtually everything that bears the Bitdefender brand, including but not limited to the website, products and services.
+
+We decided to offer rewards only for the following targets:
+
+*.bitdefender.com
+*.bitdefender.net
+Bitdefender Total Security
+Bitdefender GravityZone Business Security
+Bitdefender Antimalware Engines
+Exciting Update: Expanding Our Scope
+In our continuous effort to enhance cybersecurity, Bitdefender has recently acquired Horangi Cyber Security. We are thrilled to announce the inclusion of Horangi Cyber Security in our bug bounty program. As such, we encourage researchers to also scrutinize and report vulnerabilities in *.horangi.com.
+
+The following kinds of findings are specifically non-rewardable within this program:
+Self XSS or other types of self-exploitation (cookie reuse, self DoS, self-cookie-bomb, etc.)
+Descriptive error messages (e.g., stack traces, application or server errors).
+Email spoofing issues (incomplete or lack of SPF, DMARC, DKIM records)
+Out of date software versions
+Content Spoofing
+Vulnerabilities that are limited to unsupported browsers or operating systems
+Password policies not enforced on user accounts
+Clickjacking or any issue exploitable through clickjacking
+Vulnerabilities in third-party software. Please reach out to the company responsible for the code to have the issues fixed. We may contact the upstream provider, depending on the impact of the vulnerability.
+Lack of Secure and HTTPOnly cookie flags.
+Username / email enumeration
+CORS issues without a working PoC
+Login or Forgot Password page brute force and account lockout not enforced
+CSRF issues that have no security impact
+Antimalware detections bypass or undetected malware samples
+Local privilege elevation on Gravityzone On-Premises OS Recently disclosed critical vulnerabilities in third-party software where there is no patch, or a recent patch (less than one week) is available.
+Missing HTTP security headers
+TLS/SSL Issues, bad cipher suite, expired certificates, etc.
+Internal IP address disclosure
+Reports of spam (i.e., any report involving ability to send emails without rate limits).
+Pre-Authentication Account Takeover
+Mobile issues that require root access or unsupported OS versions
+Non-sensitive exposed API keys (Google Maps, etc.).
+Failure to invalidate session on password change or MFA change.
+Out of scope targets
+lsems.gravityzone.bitdefender.com
+ssems.gravityzone.bitdefender.com
+community.bitdefender.com
+resellerportal.bitdefender.com
+stats.bitdefender.com
+sstats.bitdefender.com
+brand.bitdefender.com
+partner-marketing.bitdefender.com
+businessinsights.bitdefender.com
+businessemail.bitdefender.com
+businessresources.bitdefender.com
+oemhub.bitdefender.com
+oemresources.bitdefender.com
+crp.bitdefender.com
+telcosuccess.bitdefender.com
+demo.bitdefender.com
+
+Program Terms
+Participation in the Bitdefender Bug Bounty Reward program is voluntary and subject to the legal terms and conditions detailed on Terms and Conditions page. By submitting a vulnerability report to Bitdefender, you acknowledge that you have read and agreed to our program terms.
+
+Qualification Criteria
+The program covers any exploitable vulnerability that can compromise the integrity of our user data, crash applications (leading to compromise of data) or disclose sensitive information (for example remote code execution, SQL injection, Cross-Site Scripting, Cross-Site Request Forgery, information disclosure of sensitive data, authentication theft or bypass, clickjacking).
+
+Make sure your submission report includes the proof of concept and replication information.
+
+Non-qualifying vulnerabilities
+Submissions that include just the output of automated tools will be marked as invalid. You must clearly outline the attack vectors and reproduction steps to accomplish the compromise
+
+Submission process
+We encourage you to send your submissions in an encrypted format to bugbounty@bitdefender.com. We aim to acknowledge your report within 3 business days of receiving it. For the best results, please keep your submission concise, informative, and action-oriented. Thank you for your patience while we review your report. 
+
+We prefer PGP and you can import our public key from here. Make sure your report includes:
+
+A clear and relevant title
+Affected product / service
+Vulnerability details and impact
+Reproduction steps / Proof of Concept
+Rewards
+There is no fixed price for submissions. They will all be evaluated and rewards will be issued based on impact. Obviously an XSS submission will value less than RCE.
+
+The minimum reward is set at $100. We’re not setting an upper limit on rewards at this time. The rewards will be issued if you are the first one to submit a specific vulnerability and your report is determined to address a valid issue by our response team.
+
+IMPORTANT
+This program is open to participants worldwide, excluding locations where prohibited by law, who have reached the age of majority in his/her country, province or territory of residence.
+Participants are responsible for any tax implications depending on the country of residency and citizenship. There may be additional restrictions on a participant’s ability to enter the program, depending upon local law.
+Determining the validity and value of a submission lies exclusively with our team. We trust you to tinker with our technologies and you’ll have to trust us to be fair in our evaluation.
