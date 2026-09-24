@@ -1,9 +1,11 @@
 # Unauthenticated server-side request forgery in Datto RMM sign-in
 
-**Severity:** Provisional Medium, CVSS 3.1 **5.3** (`CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N`); the integrity rating depends on the reachable destination's handling of the forced POST.  
-**CWE:** CWE-918, Server-Side Request Forgery  
-**OWASP:** A10:2021, Server-Side Request Forgery  
-**Affected component:** `POST https://datto.rmm.bitdefender.com/api/user/signIn` (hosted integration; build version not exposed, observed 2026-09-23 UTC)
+| Field | Assessment |
+| --- | --- |
+| Severity | Provisional Medium, CVSS 3.1 **5.3** (`CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N`); the integrity rating depends on the reachable destination's handling of the forced POST. |
+| CWE | CWE-918, Server-Side Request Forgery |
+| OWASP | A10:2021, Server-Side Request Forgery |
+| Affected component | `POST https://datto.rmm.bitdefender.com/api/user/signIn` (hosted integration; build version not exposed, observed 2026-09-23 UTC) |
 
 The host is covered by the program's `*.bitdefender.com` scope and is not on its excluded-host list. The vulnerable request originates in Bitdefender's integration API; no flaw in third-party Datto software is alleged.
 

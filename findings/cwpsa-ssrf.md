@@ -1,9 +1,11 @@
 # Unauthenticated server-side request forgery in ConnectWise PSA sign-in
 
-**Severity:** Provisional Medium, CVSS 3.1 **5.3** (`CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N`); the integrity rating depends on the reachable destination's handling of the forced GET.  
-**CWE:** CWE-918, Server-Side Request Forgery  
-**OWASP:** A10:2021, Server-Side Request Forgery  
-**Affected component:** `POST https://cwpsa.rmm.bitdefender.com/login` (hosted integration, observed 2026-09-24 UTC; backend user agent identifies build `1.0.9743.31067`)
+| Field | Assessment |
+| --- | --- |
+| Severity | Provisional Medium, CVSS 3.1 **5.3** (`CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N`); the integrity rating depends on the reachable destination's handling of the forced GET. |
+| CWE | CWE-918, Server-Side Request Forgery |
+| OWASP | A10:2021, Server-Side Request Forgery |
+| Affected component | `POST https://cwpsa.rmm.bitdefender.com/login` (hosted integration, observed 2026-09-24 UTC; backend user agent identifies build `1.0.9743.31067`) |
 
 `cwpsa.rmm.bitdefender.com` is covered by `*.bitdefender.com` and is not a named excluded host. The issue is in Bitdefender's ConnectWise PSA integration flow, rather than a flaw in ConnectWise software.
 
