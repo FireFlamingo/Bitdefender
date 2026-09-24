@@ -30,3 +30,11 @@ Scope reviewed: `central.bitdefender.com`, `login.bitdefender.com`, `nimbus.bitd
 ## Remaining lead
 
 With an authorized test account, inspect whether `renderTwoFactorBackupPage` HTML-escapes the posted `secret` and enforces CSRF. Anonymous requests are blocked at HTTP 403, so the current evidence does **not** support a report. Also test any tenant-owned GravityZone SSO metadata names before claiming the login `.html(...)` sink is controllable across tenants.
+
+## Own-account Central access-control checks
+
+- Created two researcher-owned Central accounts through the public signup flow with temporary mailboxes. Login, `connect/login` token exchange, and same-account `connect/user_info.getInfo`/`profiles_list` succeeded. Credentials and tokens are only in `C:\Users\amogh\AppData\Local\Temp\bd_bb_account.json` and `C:\Users\amogh\AppData\Local\Temp\bd_bb_account2.json`, outside the project and Git.
+- With account A's Nimbus token, `connect/user_info.profiles_get` for account B's `profile_id` returned `{"result":{"status":1,"data":"Profile not found!"}}`. Reverse direction was identical. Each account's own profile ID returned `status:0` and profile data.
+- With account A's Nimbus token, `connect/user_info.profiles_set` targeting account B's profile ID and changing only `first_name` returned `{"result":{"status":1,"data":"Profile not found!"}}`. Account B was not modified.
+- `connect/login.connect` rejected account A's **prelogin** token from `v1/user/lookup` with `Invalid partner user token` (code 1017). The signed token from `v1/user/signin` succeeded.
+- Official GravityZone trial registration requires a business email, company name, and phone number. I did not create a GravityZone business tenant with invented contact details; authenticated GravityZone endpoints remain untested.
