@@ -43,6 +43,8 @@ The observed outbound source IP was `74.234.78.221`. A first root-path callback 
 
 A sanitized snapshot of both collector events is in [`datto-ssrf-evidence.json`](datto-ssrf-evidence.json).
 
+For a full live request/response transcript using a disposable owned collector, run [`inspect-ssrf.py`](inspect-ssrf.py) with `datto` as described in [`inspect-ssrf.md`](inspect-ssrf.md). It prints Bitdefender's HTTP response and the collector's inbound requests, then saves the raw event JSON outside Git.
+
 4. As a control, submit `https://<owned-collector>.webhook.site` without the fragment. It also produces `400 Invalid Datto RMM credentials.`, but no request reaches the collector. An explicit `:443` port with the fragment did reach the collector. An `http://` URL with the fragment did not produce a callback; only HTTPS was verified.
 
 ## Response handling observed

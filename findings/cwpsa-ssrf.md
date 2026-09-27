@@ -44,6 +44,8 @@ In a verified run at `2026-09-24 06:26:28 UTC`, the callback came from `20.111.1
 
 A sanitized snapshot of the two collector events is in [`cwpsa-ssrf-evidence.json`](cwpsa-ssrf-evidence.json). The independently observed fragment-suffixed URL `https://<owned-collector>.webhook.site#x.myconnectwise.net` also produced a callback, but the plain URL demonstrates that the fragment is unnecessary.
 
+For a full live request/response transcript using a disposable owned collector, run [`inspect-ssrf.py`](inspect-ssrf.py) with `cwpsa` as described in [`inspect-ssrf.md`](inspect-ssrf.md). It prints Bitdefender's HTTP response and the collector's inbound requests, then saves the raw event JSON outside Git.
+
 ## Impact and limits
 
 An unauthenticated caller can induce the ConnectWise PSA integration to make HTTPS GET requests to an arbitrary host, with control over the normalized path, from the service's network context. The callback proves the server-side request and absence of an authentication prerequisite. The test did not establish access to internal HTTPS hosts, reflection of response bodies, target state changes, victim credential disclosure, or account takeover. The submitted integration keys were dummy values. Acceptance and severity therefore depend on the program's assessment of the demonstrated request capability; the CVSS integrity rating is provisional.
