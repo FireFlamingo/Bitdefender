@@ -16,6 +16,7 @@ node_modules/
 downloads/
 tmp/
 *.log
+bitdefender_codex_thread.md
 
 # Editor and OS files
 .vscode/
