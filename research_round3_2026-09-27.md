@@ -2,7 +2,7 @@
 
 ## Program scope and decision rule
 
-The [current Bitdefender bounty page](https://www.bitdefender.com/en-us/site/view/bug-bounty) adds `*.meshsecurity.io` and `*.emailsecurity.app` to the older `scope.txt` snapshot. It lists pre-authentication account takeover as non-rewardable and requires a working proof of a meaningful security boundary crossing. The existing Datto RMM and ConnectWise PSA SSRF reports remain valid observations, but their Medium severity and bounty eligibility remain provisional until an additional consequence is demonstrated.
+The [current Bitdefender bounty page](https://www.bitdefender.com/en-us/site/view/bug-bounty) adds `*.meshsecurity.io` and `*.emailsecurity.app` to the older `scope.txt` snapshot. It lists pre-authentication account takeover as non-rewardable and requires a working proof of a meaningful security boundary crossing. The existing Datto RMM and ConnectWise PSA SSRF reports remain valid observations, but their earlier Medium scores assumed an unproven integrity impact. They are unrated and not bounty-ready until an additional consequence is demonstrated.
 
 ## SSRF chain check
 

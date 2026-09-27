@@ -2,12 +2,14 @@
 
 | Field | Assessment |
 | --- | --- |
-| Severity | Provisional Medium, CVSS 3.1 **5.3** (`CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N`); the integrity rating depends on the reachable destination's handling of the forced POST. |
+| Severity | Unrated pending demonstrated impact. The earlier provisional Medium/CVSS 5.3 assumed `I:L`, but the verified callback does not establish an integrity effect. |
 | CWE | CWE-918, Server-Side Request Forgery |
 | OWASP | A10:2021, Server-Side Request Forgery |
 | Affected component | `POST https://datto.rmm.bitdefender.com/api/user/signIn` (hosted integration; build version not exposed, observed 2026-09-23 UTC) |
 
 The host is covered by the program's `*.bitdefender.com` scope and is not on its excluded-host list. The vulnerable request originates in Bitdefender's integration API; no flaw in third-party Datto software is alleged.
+
+**Bounty readiness:** The callback proves an SSRF primitive, but the current program requires a demonstrated security consequence. No protected read, state change, account takeover, or code execution was established. Do not present this report as a verified Medium finding on the present evidence.
 
 ## Summary
 
