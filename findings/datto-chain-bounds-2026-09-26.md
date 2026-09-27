@@ -35,3 +35,10 @@ The sign-in call returned HTTP 404 `ERR2` and set `SessionCookie`. Using that sa
 | `GET /api/events` | 401 Unauthorized |
 
 The collector saw only the OAuth POST carrying dummy submitted credentials and the account GET carrying the fake bearer token. No Bitdefender privileged token or cookie reached the collector. A fake Datto OAuth/account response advanced the flow to the unregistered-tenant state but did not grant protected access. Further account-level authorization testing requires a researcher-owned registered Datto/GravityZone tenant, which was unavailable. No data-access, RCE, or database impact was proven.
+
+## Bounded SSRF deepening (2026-09-28)
+
+- A controlled response-body comparison showed that HTTP 200 JSON `{}` and a synthetic OAuth token each caused the follow-up GET and HTTP 404 `ERR2`; HTTP 404 from the collector produced HTTP 400 `Invalid Datto RMM credentials.`. The `{}` case sent an empty `Bearer` value. No fetched response body was returned to the caller.
+- A bearer token containing CRLF or LF caused a generic HTTP 400 and no follow-up GET. Literal `%0d%0a` stayed literal in `Authorization`; no extra canary header appeared at the owned collector. This did not yield arbitrary header control.
+- Direct HTTPS loopback probes at ports 1, 443, 8443, and 5001 all produced the same HTTP 400 after roughly 15 seconds, including the known closed control, while the owned HTTPS control completed in roughly one second. The timing did not distinguish open ports.
+- The service followed a controlled HTTPS redirect to an owned collector. Redirecting instead to loopback port 443 returned the same generic HTTP 400 after roughly 14 seconds as the direct loopback probes. No internal service response or access was established.

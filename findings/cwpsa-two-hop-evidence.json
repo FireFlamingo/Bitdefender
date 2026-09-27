@@ -1,0 +1,50 @@
+{
+  "description": "Sanitized owned-destination evidence for the ConnectWise PSA second-hop SSRF and response reflection. All API credentials were dummy values; no protected tenant was accessed.",
+  "observed_utc_date": "2026-09-27",
+  "source_ip": "20.111.12.174",
+  "anonymous_root": {
+    "status": 302,
+    "location": "https://cwpsa.rmm.bitdefender.com/login?ReturnUrl=%2F"
+  },
+  "synthetic_login": {
+    "status": 302,
+    "location": "/",
+    "app_auth_cookie_issued": true,
+    "same_session_root_status": 200
+  },
+  "first_hop": {
+    "method": "GET",
+    "path_pattern": "/login/companyinfo/<owned-company-id>"
+  },
+  "second_hop_company_check": {
+    "method": "GET",
+    "path": "/v4_6_release/apis/3.0/company/companies?page=1&pageSize=1",
+    "basic_auth_credentials": "researcher-supplied dummy values"
+  },
+  "second_hop_service_boards": {
+    "method": "GET",
+    "path": "/v4_6_release/apis/3.0/service/boards?pageSize=1000&conditions=projectFlag=false%20AND%20inactiveFlag=false"
+  },
+  "reflected_response": {
+    "bitdefender_path": "/api/PluginConfiguration/serviceBoards",
+    "status": 200,
+    "body": [
+      {
+        "id": 987654321,
+        "name": "owned-response-ed5096cb90c2",
+        "inactiveFlag": false
+      }
+    ]
+  },
+  "cross_origin_https_redirect": {
+    "redirected_request_method": "GET",
+    "redirected_request_path": "/owned-target-a37b969f54",
+    "reflected_marker": "external-redirect-a37b969f54",
+    "authorization_header_forwarded": false
+  },
+  "internal_reach": {
+    "loopback_closed_port_1_result": "HTTP 500 generic error",
+    "loopback_port_443_result": "HTTP 500 generic error",
+    "positive_internal_endpoint": false
+  }
+}

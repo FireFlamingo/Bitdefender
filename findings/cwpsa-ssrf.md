@@ -9,7 +9,7 @@
 
 `cwpsa.rmm.bitdefender.com` is covered by `*.bitdefender.com` and is not a named excluded host. The issue is in Bitdefender's ConnectWise PSA integration flow, rather than a flaw in ConnectWise software.
 
-**Bounty readiness:** The callback proves an SSRF primitive, but the current program requires a demonstrated security consequence. No protected read, state change, account takeover, or code execution was established. Do not present this report as a verified Medium finding on the present evidence.
+**Bounty readiness:** The initial callback and the later two-hop response reflection prove an SSRF primitive, but the current program requires a demonstrated security consequence. No protected read, cross-tenant state change, account takeover, or code execution was established. Do not present this report as a verified Medium finding on the present evidence.
 
 ## Summary
 
@@ -48,9 +48,11 @@ A sanitized snapshot of the two collector events is in [`cwpsa-ssrf-evidence.jso
 
 For a full live request/response transcript using a disposable owned collector, run [`inspect-ssrf.py`](inspect-ssrf.py) with `cwpsa` as described in [`inspect-ssrf.md`](inspect-ssrf.md). It prints Bitdefender's HTTP response and the collector's inbound requests, then saves the raw event JSON outside Git.
 
+The later [two-hop investigation](cwpsa-two-hop.md) and [runnable PoC](cwpsa-two-hop-poc.py) demonstrate an additional response-controlled HTTPS destination and reflection of an owned JSON marker through `/api/PluginConfiguration/serviceBoards`. The resulting app session remained unconfigured and did not expose a protected tenant.
+
 ## Impact and limits
 
-An unauthenticated caller can induce the ConnectWise PSA integration to make HTTPS GET requests to an arbitrary host, with control over the normalized path, from the service's network context. The callback proves the server-side request and absence of an authentication prerequisite. The test did not establish access to internal HTTPS hosts, reflection of response bodies, target state changes, victim credential disclosure, or account takeover. The submitted integration keys were dummy values. Acceptance and severity therefore depend on the program's assessment of the demonstrated request capability; the CVSS integrity rating is provisional.
+An unauthenticated caller can induce the ConnectWise PSA integration to make HTTPS GET requests to an arbitrary host, with control over the normalized path, from the service's network context. A controlled company-info response can also select a second HTTPS host; after an owned synthetic login, the Bitdefender service reflected an owned JSON array from that host through `/api/PluginConfiguration/serviceBoards`. The test did not establish access to an internal HTTPS service, protected data, another tenant, code execution, or a database. Acceptance and severity depend on a further demonstrated security consequence; no CVSS confidentiality or integrity impact is assigned from the owned-marker test alone.
 
 ## Remediation
 
